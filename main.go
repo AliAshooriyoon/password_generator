@@ -13,8 +13,11 @@ type (
 )
 
 func main() {
-	users := make(map[userIDType]userStruct)
-	users["sara"] = userStruct{"Sara", 33, 1, "Israel"}
-	users["ali"] = userStruct{"Ali", 18, 2, "Iran"}
-	fmt.Println(users["ali"])
+	users := []string{"ahmed", "ali"}
+	fmt.Println(users[1])
+	nameReturner := func(name string) string {
+		fmt.Println("slm " + name)
+		return "slm " + name
+	}
+	nameReturner("Ali")
 }
