@@ -1,23 +1,14 @@
 package main
 
-import "fmt"
-
-type (
-	userIDType string
-	userStruct struct {
-		name     string
-		age      int
-		id       int
-		national string
-	}
+import (
+	"flag"
+	"fmt"
 )
 
 func main() {
-	users := []string{"ahmed", "ali"}
-	fmt.Println(users[1])
-	nameReturner := func(name string) string {
-		fmt.Println("slm " + name)
-		return "slm " + name
-	}
-	nameReturner("Ali")
+	fmt.Println("Willkommen")
+	var passLength int
+	flag.IntVar(&passLength, "length", 0, "lenght of password")
+	flag.Parse()
+	fmt.Println(passLength)
 }
