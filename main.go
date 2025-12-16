@@ -8,6 +8,6 @@ import (
 
 func main() {
 	pass := passgenerator.PassGenerator()
-	fmt.Println("-----------------pass----------------------")
+	fmt.Println("-----------------password----------------------")
 	fmt.Println(pass)
 }
