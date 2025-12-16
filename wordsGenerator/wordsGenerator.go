@@ -1,6 +1,8 @@
 package wordsgenerator
 
-import "fmt"
+import (
+	"github.com/fatih/color"
+)
 
 const (
 	lowercase    = "abcdefghijklmnopqrstuvwxyz"
@@ -16,14 +18,9 @@ func WordsGenerator(length int, special, noUpper, noLower, noNums, full bool) st
 	}
 	if noUpper {
 		chars = lowercase + numbers
-		fmt.Println("hier!")
 	} else if noLower && !noUpper && !noNums {
-
-		fmt.Println("hier2!")
 		chars = uppercase + numbers
 	} else if noNums && !noUpper && !noLower {
-
-		fmt.Println("hier3!")
 		chars = uppercase + lowercase
 	}
 	if noLower && noUpper {
@@ -43,6 +40,11 @@ func WordsGenerator(length int, special, noUpper, noLower, noNums, full bool) st
 	} else if special {
 		chars += specialWords
 	}
-	fmt.Printf(" length: %v \n special: %v \n noUpperCaseWords: %v \n noLowerCaseWords: %v \n noNumbers: %v \n fullShow: %v \n", length, special, noUpper, noLower, noNums, full)
+	color.Cyan(" length %v \n", length)
+	color.Blue(" special: %v \n", special)
+	color.Green(" noUpperCaseWords: %v \n", noUpper)
+	color.Magenta(" noLowerCaseWords: %v \n", noLower)
+	color.Yellow(" noNumbers: %v \n", noNums)
+	color.Red(" fullShow: %v \n", full)
 	return chars
 }
