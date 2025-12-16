@@ -33,6 +33,11 @@ func WordsGenerator(length int, special, noUpper, noLower, noNums, full bool) st
 	} else if special {
 		chars += specialWords
 	}
-	fmt.Println(length, special, noUpper, noLower, noNums, full)
+	fmt.Printf(" length: %v \n", length)
+	fmt.Printf(" special: %v \n", special)
+	fmt.Printf(" noUpperCaseWords: %v \n", noUpper)
+	fmt.Printf(" noLowerCaseWords: %v \n", noLower)
+	fmt.Printf(" noNumbers: %v \n", noNums)
+	fmt.Printf(" fullShow: %v \n", full)
 	return chars
 }
