@@ -11,11 +11,19 @@ const (
 
 func WordsGenerator(length int, special, noUpper, noLower, noNums, full bool) string {
 	var chars string
+	if noLower || noUpper || noNums {
+		full = false
+	}
 	if noUpper {
 		chars = lowercase + numbers
-	} else if noLower {
+		fmt.Println("hier!")
+	} else if noLower && !noUpper && !noNums {
+
+		fmt.Println("hier2!")
 		chars = uppercase + numbers
-	} else if noNums {
+	} else if noNums && !noUpper && !noLower {
+
+		fmt.Println("hier3!")
 		chars = uppercase + lowercase
 	}
 	if noLower && noUpper {
@@ -30,13 +38,11 @@ func WordsGenerator(length int, special, noUpper, noLower, noNums, full bool) st
 	}
 	if special && full {
 		chars += numbers + uppercase + lowercase + specialWords
+	} else if full {
+		return " "
 	} else if special {
 		chars += specialWords
 	}
-	fmt.Printf(" length: %v \n  special: %v \n", length, special)
-	fmt.Printf(" noUpperCaseWords: %v \n", noUpper)
-	fmt.Printf(" noLowerCaseWords: %v \n", noLower)
-	fmt.Printf(" noNumbers: %v \n", noNums)
-	fmt.Printf(" fullShow: %v \n", full)
+	fmt.Printf(" length: %v \n special: %v \n noUpperCaseWords: %v \n noLowerCaseWords: %v \n noNumbers: %v \n fullShow: %v \n", length, special, noUpper, noLower, noNums, full)
 	return chars
 }
