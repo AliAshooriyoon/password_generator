@@ -13,14 +13,20 @@ func PassGenerator() string {
 	var includesSpecial bool
 	var includesNotUpper bool
 	var includesNotLower bool
-	var includesNotNumbers bool
 	var full bool
+	var includesNotNumbers bool
 	flag.IntVar(&length, "length", 0, " password length")
-	flag.BoolVar(&includesSpecial, "special", false, "includes special")
-	flag.BoolVar(&includesNotUpper, "no-upper", false, "includes not uppercase words")
-	flag.BoolVar(&includesNotLower, "no-lower", false, "includes not lowercase words")
-	flag.BoolVar(&includesNotNumbers, "nonumbers", false, "includes not numbers words")
-	flag.BoolVar(&full, "full", true, "includes all characters")
+
+	flag.BoolVar(&includesSpecial, "special", false,
+		"includes special")
+	flag.BoolVar(&includesNotUpper, "no-upper", false,
+		"includes not uppercase words")
+	flag.BoolVar(&includesNotLower, "no-lower", false,
+		"includes not lowercase words")
+	flag.BoolVar(&includesNotNumbers, "nonumbers", false,
+		"includes not numbers words")
+	flag.BoolVar(&full, "full", true,
+		"includes all characters")
 	flag.Parse()
 	password := make([]byte, length)
 

@@ -11,7 +11,9 @@ const (
 	specialWords = "!@#$%^&*()-_=+[]{}|;:,.<>?"
 )
 
-func WordsGenerator(length int, special, noUpper, noLower, noNums, full bool) string {
+func WordsGenerator(length int, special,
+	noUpper, noLower, noNums, full bool,
+) string {
 	var chars string
 	if noLower || noUpper || noNums {
 		full = false
